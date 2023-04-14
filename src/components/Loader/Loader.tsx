@@ -2,7 +2,7 @@ import React from 'react';
 
 function Loader() {
   return (
-    <div className="flex items-center justify-center col-span-3 m-auto aspect-square">
+    <div className="flex items-center justify-center col-span-5 m-auto aspect-square">
       <svg
         aria-hidden="true"
         role="status"

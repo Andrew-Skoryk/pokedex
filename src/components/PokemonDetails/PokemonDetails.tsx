@@ -5,45 +5,60 @@ type Props = {
   pokemon: Pokemon;
 };
 
-function PokemonDetails({ pokemon }: Props) {
-  if (!pokemon) {
-    return null;
+function formatStatName(statName: string) {
+  switch (statName) {
+    case 'special-attack':
+      return 'SP Attack';
+    case 'special-defense':
+      return 'SP Defense';
+    default:
+      return statName;
   }
+}
+
+function PokemonDetails({ pokemon }: Props) {
+  const { id, sprites, name, types, stats, weight } = pokemon;
+  const formattedId = id.toString().padStart(3, '0');
 
   return (
-    <article className="p-2 border border-stone-700">
+    <div className="flex flex-col items-center p-2 border border-slate-700">
       <img
-        src={pokemon.sprites.front_default!}
-        alt={pokemon.name}
-        className="w-full border border-stone-700"
+        src={sprites.front_default!}
+        alt={name}
+        className="w-full mb-3 border border-stone-700"
       />
-      <h2 className="font-semibold ">{`${pokemon.name} #${pokemon.id}`}</h2>
-      <p>Type: {pokemon.types.map((t) => t.type.name).join(', ')}</p>
-      <p>
-        Attack: {pokemon.stats.find((s) => s.stat.name === 'attack')?.base_stat}
-      </p>
-      <p>
-        Defense:{' '}
-        {pokemon.stats.find((s) => s.stat.name === 'defense')?.base_stat}
-      </p>
-      <p>HP: {pokemon.stats.find((s) => s.stat.name === 'hp')?.base_stat}</p>
-      <p>
-        SP Attack:{' '}
-        {pokemon.stats.find((s) => s.stat.name === 'special-attack')?.base_stat}
-      </p>
-      <p>
-        SP Defense:{' '}
-        {
-          pokemon.stats.find((s) => s.stat.name === 'special-defense')
-            ?.base_stat
-        }
-      </p>
-      <p>
-        Speed: {pokemon.stats.find((s) => s.stat.name === 'speed')?.base_stat}
-      </p>
-      <p>Weight: {pokemon.weight}</p>
-      <p>Total Moves: {pokemon.moves.length}</p>
-    </article>
+
+      <h2 className="mb-1.5 text-lg font-bold capitalize">{`${name} #${formattedId}`}</h2>
+
+      <table className="w-full text-center border border-collapse border-slate-700">
+        <tbody>
+          {types.map((t) => (
+            <tr key={t.type.name}>
+              <td className="border border-slate-700">Type</td>
+              <td className="capitalize border border-slate-700">
+                {t.type.name}
+              </td>
+            </tr>
+          ))}
+          {stats.map((s) => (
+            <tr key={s.stat.name}>
+              <td className="capitalize border border-slate-700">
+                {formatStatName(s.stat.name)}
+              </td>
+              <td className="border border-slate-700">{s.base_stat}</td>
+            </tr>
+          ))}
+          <tr>
+            <td className="border border-slate-700">Weight</td>
+            <td className="border border-slate-700">{weight}</td>
+          </tr>
+          <tr>
+            <td className="border border-slate-700">Total moves</td>
+            <td className="border border-slate-700">{pokemon.moves.length}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 }
 
