@@ -18,7 +18,7 @@ function PokemonCard({ pokemon, onClick }: Props) {
       <img
         src={pokemon.sprites.front_default!}
         alt={pokemon.name}
-        className="w-full h-auto mb-2 border border-stone-700"
+        className="w-full mb-2 border border-stone-700 aspect-square"
       />
 
       <h3 className="mb-1.5 text-sm font-semibold capitalize">

@@ -13,7 +13,7 @@ function App() {
         </h1>
       </header>
 
-      <main className="grid flex-grow h-full grid-cols-9 px-8 py-2">
+      <main className="grid flex-grow h-full grid-cols-9 py-2">
         <PokemonList onSelectPokemon={setSelectedPokemon} />
         <aside className="fixed w-1/6 right-1/4">
           {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}

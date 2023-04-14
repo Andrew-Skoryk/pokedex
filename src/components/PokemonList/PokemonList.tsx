@@ -25,7 +25,7 @@ function PokemonList({ onSelectPokemon }: Props) {
   };
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader gridPosition="col-span-5" />;
   }
 
   if (isError || !data) {
@@ -43,7 +43,7 @@ function PokemonList({ onSelectPokemon }: Props) {
         />
       ))}
 
-      {isFetchingNextPage && <Loader />}
+      {isFetchingNextPage && <Loader gridPosition="col-span-3" />}
 
       <button
         type="button"

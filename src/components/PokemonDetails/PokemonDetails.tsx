@@ -25,7 +25,7 @@ function PokemonDetails({ pokemon }: Props) {
       <img
         src={sprites.front_default!}
         alt={name}
-        className="w-full mb-3 border border-stone-700"
+        className="w-full mb-3 border border-stone-700 aspect-square"
       />
 
       <h2 className="mb-1.5 text-lg font-bold capitalize">{`${name} #${formattedId}`}</h2>

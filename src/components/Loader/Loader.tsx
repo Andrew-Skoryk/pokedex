@@ -1,8 +1,14 @@
 import React from 'react';
 
-function Loader() {
+type Props = {
+  gridPosition: string;
+};
+
+function Loader({ gridPosition }: Props) {
   return (
-    <div className="flex items-center justify-center col-span-5 m-auto aspect-square">
+    <div
+      className={`flex items-center justify-center ${gridPosition} m-auto aspect-square`}
+    >
       <svg
         aria-hidden="true"
         role="status"
