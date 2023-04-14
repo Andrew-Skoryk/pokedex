@@ -12,7 +12,7 @@ function PokemonCard({ pokemon, onClick }: Props) {
   return (
     <button
       type="button"
-      className="flex flex-col items-center justify-center p-2 border border-stone-700"
+      className="flex flex-col items-center p-1 border lg:p-2 border-stone-700"
       onClick={onClick}
     >
       <img
@@ -25,7 +25,7 @@ function PokemonCard({ pokemon, onClick }: Props) {
         {pokemon.name}
       </h3>
 
-      <div className="grid w-full grid-cols-2 grid-rows-2 gap-3 text-center">
+      <div className="grid w-full grid-rows-2 gap-3 text-center lg:grid-cols-2">
         {pokemon.types.map(({ type }) => (
           <PokemonTypeIcon
             key={type.name}

@@ -5,17 +5,19 @@ import PokemonDetails from './components/PokemonDetails';
 
 function App() {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
+
   return (
     <div className="flex flex-col max-w-screen-md min-h-screen m-auto text-stone-800">
       <header className="flex justify-center py-2 text-center">
-        <h1 className="w-1/4 py-1 text-3xl font-semibold border-2 xl:w-1/3 border-slate-700">
+        <h1 className="w-1/2 py-1 text-3xl font-semibold border-2 border-slate-700">
           Pokedex
         </h1>
       </header>
 
-      <main className="grid flex-grow h-full grid-cols-9 py-2">
+      <main className="grid flex-grow h-full grid-cols-2 px-2 py-2 lg:grid-cols-9 lg:px-0">
         <PokemonList onSelectPokemon={setSelectedPokemon} />
-        <aside className="fixed w-1/6 right-1/4">
+
+        <aside className="fixed hidden lg:w-52 xl:right-1/4 xl:top-36 lg:right-52">
           {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}
         </aside>
       </main>

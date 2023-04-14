@@ -34,7 +34,7 @@ function PokemonList({ onSelectPokemon }: Props) {
   const pokemons = data.pages.flatMap((page) => page);
 
   return (
-    <section className="grid h-full grid-cols-3 col-span-5 gap-4">
+    <section className="grid h-full grid-cols-3 gap-2 lg:gap-4 lg:col-span-5">
       {pokemons.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
