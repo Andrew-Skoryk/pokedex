@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Pokemon } from 'pokenode-ts';
 import PokemonList from './components/PokemonList';
+import PokemonDetails from './components/PokemonDetails';
 
 function App() {
+  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   return (
-    <div className="m-auto max-w-screen-2xl text-stone-800">
-      <header className="flex justify-center py-6 text-center">
-        <h1 className="w-1/4 py-4 text-5xl font-semibold border-4 xl:w-1/3 border-slate-700">
+    <div className="flex flex-col max-w-screen-md min-h-screen m-auto text-stone-800">
+      <header className="flex justify-center py-2 text-center">
+        <h1 className="w-1/4 py-1 text-3xl font-semibold border-2 xl:w-1/3 border-slate-700">
           Pokedex
         </h1>
       </header>
-      <main className="grid grid-cols-5 gap-24 p-12">
-        <PokemonList />
-        <aside className="col-start-4 col-end-5">Full datails</aside>
+
+      <main className="grid flex-grow h-full grid-cols-9 px-8 py-2">
+        <PokemonList onSelectPokemon={setSelectedPokemon} />
+        <aside className="fixed w-1/6 right-1/4">
+          {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}
+        </aside>
       </main>
     </div>
   );
