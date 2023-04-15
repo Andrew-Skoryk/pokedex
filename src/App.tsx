@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Pokemon } from 'pokenode-ts';
 import PokemonList from './components/PokemonList';
 import PokemonDetails from './components/PokemonDetails';
+import './App.css';
 
 function App() {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
