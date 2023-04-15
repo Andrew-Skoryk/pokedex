@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pokemon } from 'pokenode-ts';
 import PokemonTypeIcon from '../PokemonTypeIcon';
-import { PokemonTypeString } from '../types/PokemonTypes';
+import { PokemonTypes } from '../types/PokemonTypes';
 
 type Props = {
   pokemon: Pokemon;
@@ -27,10 +27,7 @@ function PokemonCard({ pokemon, onClick }: Props) {
 
       <div className="grid w-full grid-rows-2 gap-3 text-center lg:grid-cols-2">
         {pokemon.types.map(({ type }) => (
-          <PokemonTypeIcon
-            key={type.name}
-            type={type.name as PokemonTypeString}
-          />
+          <PokemonTypeIcon key={type.name} type={type.name as PokemonTypes} />
         ))}
       </div>
     </button>

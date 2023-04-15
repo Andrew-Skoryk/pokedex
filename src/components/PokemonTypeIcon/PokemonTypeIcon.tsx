@@ -1,7 +1,7 @@
 import React from 'react';
-import { PokemonTypeString } from '../types/PokemonTypes';
+import { PokemonTypes } from '../types/PokemonTypes';
 
-const typeClasses: Record<PokemonTypeString, string> = {
+const typeClasses: Record<PokemonTypes, string> = {
   fire: 'bg-red-400 from-red-100 border-red-500',
   electric: 'bg-yellow-400 from-yellow-100 border-yellow-500',
   grass: 'bg-green-400 from-green-100 border-green-500',
@@ -23,7 +23,7 @@ const typeClasses: Record<PokemonTypeString, string> = {
 };
 
 type Props = {
-  type: PokemonTypeString;
+  type: PokemonTypes;
 };
 
 function PokemonTypeIcon({ type }: Props) {

@@ -1,59 +1,35 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Pokemon } from 'pokenode-ts';
-import usePokemons from '../../hooks/usePokemons';
+import { InfiniteData } from 'react-query/';
 import PokemonCard from '../PokemonCard';
-import Loader from '../Loader/Loader';
 
 type Props = {
+  pokemonData: InfiniteData<Pokemon[]>;
   onSelectPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>;
+  filterType: string | null;
 };
 
-function PokemonList({ onSelectPokemon }: Props) {
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isLoading,
-    isError,
-    isFetchingNextPage,
-  } = usePokemons(12);
+function PokemonList({ pokemonData, onSelectPokemon, filterType }: Props) {
+  const pokemons = pokemonData.pages.flatMap((page) => page);
 
-  const handleLoadMore = () => {
-    if (hasNextPage) {
-      fetchNextPage();
-    }
-  };
+  const filteredPokemons = useMemo(() => {
+    if (!filterType) return pokemons;
 
-  if (isLoading) {
-    return <Loader gridPosition="col-span-5" />;
-  }
-
-  if (isError || !data) {
-    return <h2>Error occurred</h2>;
-  }
-  const pokemons = data.pages.flatMap((page) => page);
+    return pokemons.filter((pokemon) =>
+      pokemon.types.some((type) => type.type.name === filterType)
+    );
+  }, [pokemons, filterType]);
 
   return (
-    <section className="grid h-full grid-cols-3 gap-2 lg:gap-4 lg:col-span-5">
-      {pokemons.map((pokemon) => (
+    <>
+      {filteredPokemons.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
           onClick={() => onSelectPokemon(pokemon)}
         />
       ))}
-
-      {isFetchingNextPage && <Loader gridPosition="col-span-3" />}
-
-      <button
-        type="button"
-        className="col-span-3 py-2 text-lg font-semibold transition-colors duration-300 bg-blue-600 h-min text-slate-50 rounded-xl focus:outline-none hover:bg-blue-700 active:bg-blue-800"
-        onClick={handleLoadMore}
-        disabled={!hasNextPage}
-      >
-        Load More
-      </button>
-    </section>
+    </>
   );
 }
 

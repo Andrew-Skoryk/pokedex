@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import { Pokemon } from 'pokenode-ts';
-import PokemonList from './components/PokemonList';
-import PokemonDetails from './components/PokemonDetails';
+import React from 'react';
 import './App.css';
+import MainSection from './components/MainSection';
 
 function App() {
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-
   return (
     <div className="flex flex-col max-w-screen-md min-h-screen m-auto text-stone-800">
       <header className="flex justify-center py-2 text-center">
@@ -16,11 +12,7 @@ function App() {
       </header>
 
       <main className="grid flex-grow h-full grid-cols-2 px-2 py-2 lg:grid-cols-9 lg:px-0">
-        <PokemonList onSelectPokemon={setSelectedPokemon} />
-
-        <aside className="fixed hidden lg:w-52 xl:right-1/4 xl:top-36 lg:right-52">
-          {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}
-        </aside>
+        <MainSection />
       </main>
     </div>
   );
