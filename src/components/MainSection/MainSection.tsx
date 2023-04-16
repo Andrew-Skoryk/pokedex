@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Pokemon } from 'pokenode-ts';
 import usePokemons from '../../hooks/usePokemons';
 import Loader from '../Loader/Loader';
@@ -7,6 +7,7 @@ import PokemonList from '../PokemonList';
 import SelectType from '../SelectType/SelectType';
 
 function MainSection() {
+  const loaderRef = useRef<HTMLDivElement>(null);
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [filterType, setFilterType] = useState<string | null>(null);
   const {
@@ -18,13 +19,19 @@ function MainSection() {
     isFetchingNextPage,
   } = usePokemons(12);
 
+  useEffect(() => {
+    if (isFetchingNextPage && loaderRef.current) {
+      loaderRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isFetchingNextPage]);
+
   const handleLoadMore = () => {
     if (hasNextPage) {
       fetchNextPage();
     }
   };
 
-  if (isLoading) return <Loader gridPosition="col-span-5" />;
+  if (isLoading) return <Loader customClass="col-span-9" />;
 
   const isErrorOccurred = !data && !isLoading;
 
@@ -50,7 +57,11 @@ function MainSection() {
             filterType={filterType}
           />
 
-          {isFetchingNextPage && <Loader gridPosition="col-span-3 pb-24" />}
+          {isFetchingNextPage && (
+            <div ref={loaderRef} className="col-span-3">
+              <Loader />
+            </div>
+          )}
 
           <button
             type="button"

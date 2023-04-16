@@ -1,13 +1,13 @@
 import React from 'react';
 
 type Props = {
-  gridPosition: string;
+  customClass?: string;
 };
 
-function Loader({ gridPosition }: Props) {
+function Loader({ customClass = '' }: Props) {
   return (
     <div
-      className={`flex items-center justify-center ${gridPosition} m-auto aspect-square`}
+      className={`flex items-center justify-center m-auto aspect-square ${customClass}`}
     >
       <svg
         aria-hidden="true"

@@ -8,6 +8,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react-hooks/rules-of-hooks": "error",
+    "react/require-default-props": "off",
     "react-hooks/exhaustive-deps": "warn",
     "no-restricted-exports": ["error", { "restrictedNamedExports": [] }],
     "import/extensions": [
