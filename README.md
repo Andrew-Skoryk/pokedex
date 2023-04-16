@@ -1,6 +1,6 @@
 # Pokedex
 
-Pokedex is a web application that helps users browse and search for Pokémon by type.
+This project is a simple Pokedex web application built using React, TypeScript, TailwindCSS and the pokenode-ts library to connect to `https://pokeapi.co/`. 
 
 [DEMO LINK](https://Andrew-Skoryk.github.io/pokedex)
 
@@ -28,22 +28,30 @@ https://github.com/Andrew-Skoryk/pokedex.git
 ```
 
 Navigate to the project directory:
-`cd pokedex`
+```bash
+cd pokedex
+```
 
 Install the dependencies using npm:
-`npm install`
+```bash
+npm install
+```
 
 ## Running
 
 After installing the dependencies, start the project by running the following command:
-`npm start`
+```bash
+npm start
+```
 
 The application will be available in your browser at [http://localhost:3000](http://localhost:3000).
 
 ## Building for Production
 
 To create a production build, run:
-`npm run build`
+```bash
+npm run build
+```
 
 ### Contributing
 
