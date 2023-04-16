@@ -31,7 +31,7 @@ function PokemonTypeIcon({ type }: Props) {
 
   return (
     <span
-      className={`capitalize text-sm -m-1 rounded-md tracking-tight border-2 bg-gradient-to-b ${colorClasses}`}
+      className={`capitalize text-sm px-1 -m-1 rounded-md tracking-tight border-2 bg-gradient-to-b ${colorClasses}`}
     >
       {type}
     </span>

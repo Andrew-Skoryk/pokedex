@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Pokemon } from 'pokenode-ts';
 import usePokemons from '../../hooks/usePokemons';
 import Loader from '../Loader/Loader';
-import pokemonTypesArray from '../types/PokemonTypes';
 import PokemonDetails from '../PokemonDetails';
 import PokemonList from '../PokemonList';
+import SelectType from '../SelectType/SelectType';
 
 function MainSection() {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
@@ -40,28 +40,17 @@ function MainSection() {
 
   return (
     <>
-      <div className="flex flex-col grid-cols-3 lg:col-span-5">
-        <select
-          value={filterType || ''}
-          onChange={(e) => setFilterType(e.target.value || null)}
-          className="mb-2 outline-none"
-        >
-          <option value="">All Types</option>
-          {pokemonTypesArray.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
+      <section className="flex flex-col grid-cols-3 lg:col-span-5">
+        <SelectType filterType={filterType} setFilterType={setFilterType} />
 
-        <section className="grid gap-2 lg:gap-4">
+        <div className="grid gap-2 lg:gap-4">
           <PokemonList
             pokemonData={data!}
             onSelectPokemon={setSelectedPokemon}
             filterType={filterType}
           />
 
-          {isFetchingNextPage && <Loader gridPosition="col-span-3 pb-48" />}
+          {isFetchingNextPage && <Loader gridPosition="col-span-3 pb-24" />}
 
           <button
             type="button"
@@ -71,8 +60,8 @@ function MainSection() {
           >
             Load More
           </button>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}
     </>
