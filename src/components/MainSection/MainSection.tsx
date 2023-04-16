@@ -47,22 +47,20 @@ function MainSection() {
 
   return (
     <>
-      <section className="flex flex-col col-span-2 lg:col-span-5">
+      <section className="flex flex-col lg:col-span-5 md:col-span-3">
         <SelectType filterType={filterType} setFilterType={setFilterType} />
 
-        <div className="grid grid-cols-2 gap-2 mb-4 lg:gap-4 lg:grid-cols-3">
-          <PokemonList
-            pokemonData={data!}
-            onSelectPokemon={setSelectedPokemon}
-            filterType={filterType}
-          />
+        <PokemonList
+          pokemonData={data!}
+          onSelectPokemon={setSelectedPokemon}
+          filterType={filterType}
+        />
 
-          {isFetchingNextPage && (
-            <div ref={loaderRef} className="col-span-3">
-              <Loader />
-            </div>
-          )}
-        </div>
+        {isFetchingNextPage && (
+          <div ref={loaderRef}>
+            <Loader />
+          </div>
+        )}
 
         <button
           type="button"

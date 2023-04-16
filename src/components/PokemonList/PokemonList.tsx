@@ -22,7 +22,7 @@ function PokemonList({ pokemonData, onSelectPokemon, filterType }: Props) {
 
   if (filteredPokemons.length === 0) {
     return (
-      <h2 className="flex flex-col p-4 text-2xl font-semibold text-rose-700 gap-y-3">
+      <h2 className="flex flex-col p-4 text-lg font-semibold md:text-2xl text-rose-700 gap-y-3">
         No Pokemons Found
         <hr />
         <small>
@@ -35,7 +35,7 @@ function PokemonList({ pokemonData, onSelectPokemon, filterType }: Props) {
   }
 
   return (
-    <>
+    <div className="grid grid-cols-2 gap-2 mb-4 lg:gap-4 md:grid-cols-3">
       {filteredPokemons.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
@@ -43,7 +43,7 @@ function PokemonList({ pokemonData, onSelectPokemon, filterType }: Props) {
           onClick={() => onSelectPokemon(pokemon)}
         />
       ))}
-    </>
+    </div>
   );
 }
 
