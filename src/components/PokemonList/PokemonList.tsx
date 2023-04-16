@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { Pokemon } from 'pokenode-ts';
 import { InfiniteData } from 'react-query/';
+import { motion } from 'framer-motion';
 import PokemonCard from '../PokemonCard';
 
 type Props = {
@@ -20,6 +21,12 @@ function PokemonList({ pokemonData, onSelectPokemon, filterType }: Props) {
     );
   }, [pokemons, filterType]);
 
+  const previousLengthRef = useRef(filteredPokemons.length);
+
+  useEffect(() => {
+    previousLengthRef.current = filteredPokemons.length;
+  }, [filteredPokemons.length]);
+
   if (filteredPokemons.length === 0) {
     return (
       <h2 className="flex flex-col p-4 text-lg font-semibold md:text-2xl text-rose-700 gap-y-3">
@@ -36,13 +43,29 @@ function PokemonList({ pokemonData, onSelectPokemon, filterType }: Props) {
 
   return (
     <div className="grid grid-cols-2 gap-2 mb-4 lg:gap-4 md:grid-cols-3 lg:grid-cols-4">
-      {filteredPokemons.map((pokemon) => (
-        <PokemonCard
-          key={pokemon.id}
-          pokemon={pokemon}
-          onClick={() => onSelectPokemon(pokemon)}
-        />
-      ))}
+      {filteredPokemons.map((pokemon, index) => {
+        const isNewPokemon = index >= previousLengthRef.current;
+        const delay = isNewPokemon
+          ? (index - previousLengthRef.current) * 0.05
+          : index * 0.05;
+
+        return (
+          <div className="w-full">
+            <motion.div
+              key={pokemon.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay }}
+            >
+              <PokemonCard
+                key={pokemon.id}
+                pokemon={pokemon}
+                onClick={() => onSelectPokemon(pokemon)}
+              />
+            </motion.div>
+          </div>
+        );
+      })}
     </div>
   );
 }

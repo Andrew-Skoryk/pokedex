@@ -12,7 +12,7 @@ function PokemonCard({ pokemon, onClick }: Props) {
   return (
     <button
       type="button"
-      className="flex flex-col items-center p-1 border md:p-2 border-stone-700"
+      className="flex flex-col items-center w-full p-1 border md:p-2 border-stone-700"
       onClick={onClick}
     >
       <img

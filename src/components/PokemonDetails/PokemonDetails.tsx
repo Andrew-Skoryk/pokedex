@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pokemon } from 'pokenode-ts';
+import { motion } from 'framer-motion';
 import PokemonTypeIcon from '../PokemonTypeIcon';
 import { PokemonTypes } from '../types/PokemonTypes';
 
@@ -23,7 +24,13 @@ function PokemonDetails({ pokemon }: Props) {
   const formattedId = id.toString().padStart(3, '0');
 
   return (
-    <aside className="fixed w-2/5 text-sm xl:right-1/4 lg:right-56 right-4 bottom-32 md:w-1/3 md:right-7 md:bottom-64 lg:bottom-12 lg:w-48 xl:bottom-28 2xl:right-[460px]">
+    <motion.aside
+      key={pokemon.id}
+      initial={{ scaleX: 0, scaleY: 0, y: -50 }}
+      animate={{ scaleX: 1, scaleY: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="fixed w-2/5 text-sm xl:right-1/4 lg:right-56 right-4 bottom-32 md:w-1/3 md:right-7 md:bottom-64 lg:bottom-12 lg:w-48 xl:bottom-28 2xl:right-[460px]"
+    >
       <article className="flex flex-col items-center p-2 border border-slate-700">
         <img
           src={sprites.front_default!}
@@ -64,7 +71,7 @@ function PokemonDetails({ pokemon }: Props) {
           </tbody>
         </table>
       </article>
-    </aside>
+    </motion.aside>
   );
 }
 
