@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import MainSection from './components/MainSection';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
         </h1>
       </header>
 
-      <main className="grid flex-grow h-full grid-cols-2 px-2 py-2 lg:grid-cols-9 lg:px-0">
+      <main className="grid flex-grow h-full grid-cols-3 px-2 py-2 lg:grid-cols-9 lg:px-0">
         <MainSection />
       </main>
+      <ScrollToTop />
     </div>
   );
 }

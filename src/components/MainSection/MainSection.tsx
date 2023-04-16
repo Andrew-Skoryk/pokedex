@@ -47,10 +47,10 @@ function MainSection() {
 
   return (
     <>
-      <section className="flex flex-col grid-cols-3 lg:col-span-5">
+      <section className="flex flex-col col-span-2 lg:col-span-5">
         <SelectType filterType={filterType} setFilterType={setFilterType} />
 
-        <div className="grid gap-2 lg:gap-4">
+        <div className="grid grid-cols-2 gap-2 mb-4 lg:gap-4 lg:grid-cols-3">
           <PokemonList
             pokemonData={data!}
             onSelectPokemon={setSelectedPokemon}
@@ -62,16 +62,16 @@ function MainSection() {
               <Loader />
             </div>
           )}
-
-          <button
-            type="button"
-            className="col-span-3 py-2 text-lg font-semibold transition-colors duration-300 bg-blue-600 h-min text-slate-50 rounded-xl focus:outline-none hover:bg-blue-700 active:bg-blue-800"
-            onClick={handleLoadMore}
-            disabled={!hasNextPage}
-          >
-            Load More
-          </button>
         </div>
+
+        <button
+          type="button"
+          className="py-2 text-lg font-semibold transition-colors duration-300 bg-blue-600 h-min text-slate-50 rounded-xl focus:outline-none hover:bg-blue-700 active:bg-blue-800"
+          onClick={handleLoadMore}
+          disabled={!hasNextPage}
+        >
+          Load More
+        </button>
       </section>
 
       {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}

@@ -42,7 +42,7 @@ function SelectType({ filterType, setFilterType }: Props) {
       onChange={(option) => setFilterType(option ? option.value : null)}
       options={options}
       isSearchable
-      className="w-2/5 mb-2 cursor-pointer"
+      className="mb-2 cursor-pointer lg:w-2/5"
       styles={customStyles}
     />
   );
