@@ -1,6 +1,6 @@
 # Pokedex
 
-This project is a simple Pokedex web application built using React, TypeScript, TailwindCSS and the pokenode-ts library to connect to `https://pokeapi.co/`. 
+This project is a simple Pokedex web application built using React, TypeScript, TailwindCSS and the pokenode-ts library to connect to [https://pokeapi.co/](https://pokeapi.co/). 
 
 [DEMO LINK](https://Andrew-Skoryk.github.io/pokedex)
 
@@ -22,9 +22,8 @@ To run this project, you'll need to have the following software installed on you
 ## Installation
 
 First, clone the repository to your computer:
-git clone
 ```bash
-https://github.com/Andrew-Skoryk/pokedex.git
+git clone https://github.com/Andrew-Skoryk/pokedex.git
 ```
 
 Navigate to the project directory:
