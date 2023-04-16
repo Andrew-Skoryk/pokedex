@@ -1,45 +1,53 @@
-# Getting Started with Create React App
+# Pokedex
 
-This project was bootstrapped with [DEMO LINK](https://Andrew-Skoryk.github.io/pokedex).
+Pokedex is a web application that helps users browse and search for Pokémon by type.
+[DEMO LINK](https://Andrew-Skoryk.github.io/pokedex)
 
-## Available Scripts
+## Project Features
 
-In the project directory, you can run:
+- Browse through a list of Pokémon
+- Filtering Pokémon by type
+- Viewing detailed information about each Pokémon
+- Load more Pokémon as needed
+- Responsive design for different screen sizes
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this project, you'll need to have the following software installed on your machine:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js (v12 or later)
+- npm (v6 or later)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+First, clone the repository to your computer:
+git clone
+```bash
+https://github.com/Andrew-Skoryk/pokedex.git
+```
 
-### `npm run build`
+Navigate to the project directory:
+`cd pokedex`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install the dependencies using npm:
+`npm install`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After installing the dependencies, start the project by running the following command:
+`npm start`
 
-### `npm run eject`
+The application will be available in your browser at [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Building for Production
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To create a production build, run:
+`npm run build`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Contributing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ### Author
 
 [Andrew Skoryk](https://github.com/Andrew-Skoryk)
-
