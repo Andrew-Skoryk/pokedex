@@ -1,6 +1,7 @@
 # Pokedex
 
 Pokedex is a web application that helps users browse and search for Pokémon by type.
+
 [DEMO LINK](https://Andrew-Skoryk.github.io/pokedex)
 
 ## Project Features
