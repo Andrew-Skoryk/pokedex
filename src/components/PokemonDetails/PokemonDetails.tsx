@@ -23,7 +23,7 @@ function PokemonDetails({ pokemon }: Props) {
   const formattedId = id.toString().padStart(3, '0');
 
   return (
-    <aside className="fixed w-2/5 lg:w-52 xl:right-1/4 xl:top-36 lg:right-52 right-4 bottom-32 md:w-1/3 md:right-7 md:bottom-64">
+    <aside className="fixed w-2/5 text-sm xl:right-1/4 lg:right-56 right-4 bottom-32 md:w-1/3 md:right-7 md:bottom-64 lg:bottom-12 lg:w-48 xl:bottom-28 2xl:right-[460px]">
       <article className="flex flex-col items-center p-2 border border-slate-700">
         <img
           src={sprites.front_default!}
@@ -38,7 +38,7 @@ function PokemonDetails({ pokemon }: Props) {
             {types.map((t) => (
               <tr key={t.type.name}>
                 <td className="border border-slate-700">Type</td>
-                <td className="px-0.5 capitalize border border-slate-700 lg:px-0">
+                <td className="px-0.5 capitalize border border-slate-700 py-0.5">
                   <PokemonTypeIcon type={t.type.name as PokemonTypes} />
                 </td>
               </tr>

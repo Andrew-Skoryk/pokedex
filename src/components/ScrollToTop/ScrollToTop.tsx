@@ -29,7 +29,7 @@ function ScrollToTop() {
     <button
       type="button"
       onClick={scrollToTop}
-      className="fixed w-12 h-12 p-1 bg-blue-600 rounded-full cursor-pointer text-slate-50 xl:bottom-24 xl:right-24 focus:outline-none hover:bg-blue-700 active:bg-blue-800 bottom-4 right-4 md:bottom-8 md:right-8"
+      className="fixed w-12 h-12 p-1 bg-blue-600 rounded-full cursor-pointer text-slate-50 xl:right-24 focus:outline-none hover:bg-blue-700 active:bg-blue-800 bottom-4 right-4 md:bottom-8 md:right-8"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

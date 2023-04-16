@@ -12,7 +12,7 @@ const typeClasses: Record<PokemonTypes, string> = {
   psychic: 'bg-pink-400 from-pink-100 border-pink-500',
   ice: 'bg-blue-200 from-blue-50 border-blue-300',
   dragon: 'bg-indigo-400 from-indigo-100 border-indigo-500',
-  dark: 'bg-gray-400 from-gray-100 border-gray-500',
+  dark: 'bg-stone-800 from-stone-500 border-stone-900 text-stone-50',
   fairy: 'bg-rose-400 from-rose-100 border-rose-500',
   normal: 'bg-neutral-400 from-neutral-100 border-neutral-500',
   bug: 'bg-lime-400 from-lime-100 border-lime-500',

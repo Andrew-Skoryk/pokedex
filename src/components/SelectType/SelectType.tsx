@@ -12,6 +12,8 @@ const customStyles: StylesConfig<OptionType, false> = {
   option: (provided, state) => ({
     ...provided,
     color: state.isSelected ? '#292524' : provided.color,
+    paddingTop: '4px',
+    paddingBottom: '4px',
   }),
 };
 
@@ -42,7 +44,7 @@ function SelectType({ filterType, setFilterType }: Props) {
       onChange={(option) => setFilterType(option ? option.value : null)}
       options={options}
       isSearchable
-      className="mb-2 cursor-pointer md:w-2/5"
+      className="w-4/5 mb-2 cursor-pointer md:w-2/5"
       styles={customStyles}
     />
   );
