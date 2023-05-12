@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pokemon } from 'pokenode-ts';
 import PokemonTypeIcon from '../PokemonTypeIcon';
-import { PokemonTypes } from '../types/PokemonTypes';
+import { PokemonTypes } from '../../types/PokemonTypes';
 
 type Props = {
   pokemon: Pokemon;

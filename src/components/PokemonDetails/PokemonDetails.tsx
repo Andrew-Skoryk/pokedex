@@ -2,22 +2,12 @@ import React from 'react';
 import { Pokemon } from 'pokenode-ts';
 import { motion } from 'framer-motion';
 import PokemonTypeIcon from '../PokemonTypeIcon';
-import { PokemonTypes } from '../types/PokemonTypes';
+import { PokemonTypes } from '../../types/PokemonTypes';
+import formatStatName from './lib/formatStatName';
 
 type Props = {
   pokemon: Pokemon;
 };
-
-function formatStatName(statName: string) {
-  switch (statName) {
-    case 'special-attack':
-      return 'SP Attack';
-    case 'special-defense':
-      return 'SP Defense';
-    default:
-      return statName;
-  }
-}
 
 function PokemonDetails({ pokemon }: Props) {
   const { id, sprites, name, types, stats, weight } = pokemon;

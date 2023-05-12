@@ -62,14 +62,16 @@ function MainSection() {
           </div>
         )}
 
-        <button
-          type="button"
-          className="py-2 text-lg font-semibold transition-colors duration-300 bg-blue-600 h-min text-slate-50 rounded-xl focus:outline-none hover:bg-blue-700 active:bg-blue-800"
-          onClick={handleLoadMore}
-          disabled={!hasNextPage}
-        >
-          Load More
-        </button>
+        {hasNextPage && (
+          <button
+            type="button"
+            className="py-2 text-lg font-semibold transition-colors duration-300 bg-blue-600 h-min text-slate-50 rounded-xl focus:outline-none hover:bg-blue-700 active:bg-blue-800"
+            onClick={handleLoadMore}
+            disabled={isLoading}
+          >
+            Load More
+          </button>
+        )}
       </section>
 
       {selectedPokemon && <PokemonDetails pokemon={selectedPokemon} />}

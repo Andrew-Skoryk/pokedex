@@ -1,36 +1,7 @@
 import React from 'react';
-import Select, { StylesConfig } from 'react-select';
-import pokemonTypesArray from '../types/PokemonTypes';
-import PokemonTypeIcon from '../PokemonTypeIcon';
-
-type OptionType = {
-  value: string;
-  label: React.ReactNode;
-};
-
-const customStyles: StylesConfig<OptionType, false> = {
-  option: (provided, state) => ({
-    ...provided,
-    color: state.isSelected ? '#292524' : provided.color,
-    paddingTop: '4px',
-    paddingBottom: '4px',
-  }),
-};
-
-const options = [
-  {
-    value: '',
-    label: 'All Types',
-  },
-  ...pokemonTypesArray.map((type) => ({
-    value: type,
-    label: (
-      <div className="px-1">
-        <PokemonTypeIcon type={type} />
-      </div>
-    ),
-  })),
-];
+import Select from 'react-select';
+import options from './options';
+import customStyles from './customStyles';
 
 type Props = {
   filterType: string | null;
